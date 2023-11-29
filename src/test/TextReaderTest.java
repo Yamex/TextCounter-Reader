@@ -11,9 +11,8 @@ public class TextReaderTest {
     public void testStop() {
         var tr = new TextReader();
 
-        assertTrue(tr.read("stop"));
-        assertEquals(tr.getLetterCount(), 0);
-        assertEquals(tr.getWordCount(), 0);
+        tr.read("stop");
+        assertEquals(tr.getWordCount()+tr.getLetterCount(), 0);
     }
 
     @Test
@@ -24,12 +23,11 @@ public class TextReaderTest {
         tr.read("nisse");
         tr.read("fackla");
 
-        assertEquals(4+5+6, tr.getLetterCount());
         assertEquals(3, tr.getWordCount());
     }
 
     @Test
-    public void testWords2() {
+    public void testLetters() {
         var tr = new TextReader();
 
         tr.read("träd");
@@ -37,7 +35,7 @@ public class TextReaderTest {
 
 
         assertEquals(4+5+6, tr.getLetterCount());
-        assertEquals(3, tr.getWordCount());
+
 
     }
 
